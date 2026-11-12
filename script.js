@@ -5,8 +5,8 @@
   2) Replace the business email.
   3) Save this file and upload all website files to your free static host.
 */
-const BUSINESS_WHATSAPP = "923001234567"; // CHANGE THIS
-const BUSINESS_EMAIL = "hello@example.com"; // CHANGE THIS
+const BUSINESS_WHATSAPP = "923314771733";
+const BUSINESS_EMAIL = "saniajatt327@gmail.com";
 
 const menuToggle = document.getElementById("menuToggle");
 const navMenu = document.getElementById("navMenu");
@@ -22,7 +22,7 @@ document.getElementById("year").textContent = new Date().getFullYear();
 
 const validWhatsApp = () => BUSINESS_WHATSAPP && !BUSINESS_WHATSAPP.includes("CHANGE") && /^\d{10,15}$/.test(BUSINESS_WHATSAPP);
 function openWhatsApp(product = "") {
-  if (!validWhatsApp() || BUSINESS_WHATSAPP === "923001234567") {
+  if (!validWhatsApp()) {
     alert("Please add your real WhatsApp number in script.js before using order buttons.");
     return;
   }
@@ -42,7 +42,7 @@ document.getElementById("bannerWhatsapp").addEventListener("click", event => {
 const emailDisplay = document.getElementById("emailDisplay");
 const phoneDisplay = document.getElementById("phoneDisplay");
 emailDisplay.textContent = BUSINESS_EMAIL;
-phoneDisplay.textContent = (BUSINESS_WHATSAPP === "923001234567") ? "Add your number in script.js" : `+${BUSINESS_WHATSAPP}`;
+phoneDisplay.textContent = `+${BUSINESS_WHATSAPP}`;
 
 document.getElementById("orderForm").addEventListener("submit", event => {
   event.preventDefault();
@@ -52,7 +52,7 @@ document.getElementById("orderForm").addEventListener("submit", event => {
   const product = form.get("product");
   const message = form.get("message") || "Please share price and delivery details.";
   const body = `Name: ${name}\nPhone: ${phone}\nProduct: ${product}\nMessage: ${message}`;
-  if (!BUSINESS_EMAIL || BUSINESS_EMAIL === "hello@example.com") {
+  if (!BUSINESS_EMAIL) {
     const status = document.getElementById("formStatus");
     status.textContent = "Please set your real business email in script.js before using the website order form.";
     return;
