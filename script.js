@@ -1,12 +1,11 @@
 /*
-  HERBAL OIL ESSENCE — QUICK SETUP
-  1) Replace the WhatsApp number below with your country code + number, digits only.
-     Pakistan example format: 923001234567 (do not include +, spaces or dashes).
-  2) Replace the business email.
-  3) Save this file and upload all website files to your free static host.
+  HERBAL OIL ESSENCE — ORDER FORM
+  Free static website. Customers send their order through WhatsApp and/or email.
+  The customer must press Send in the selected app; this static site cannot send
+  messages in the background or store orders on a server.
 */
 const BUSINESS_WHATSAPP = "923314771733";
-const BUSINESS_EMAIL = "saniajatt327@gmail.com";
+const BUSINESS_EMAIL = "saniajutt327@gmail.com";
 
 const menuToggle = document.getElementById("menuToggle");
 const navMenu = document.getElementById("navMenu");
@@ -20,15 +19,15 @@ navMenu.querySelectorAll("a").forEach(link => link.addEventListener("click", () 
 }));
 document.getElementById("year").textContent = new Date().getFullYear();
 
-const validWhatsApp = () => BUSINESS_WHATSAPP && !BUSINESS_WHATSAPP.includes("CHANGE") && /^\d{10,15}$/.test(BUSINESS_WHATSAPP);
+const validWhatsApp = () => /^\d{10,15}$/.test(BUSINESS_WHATSAPP);
 function openWhatsApp(product = "") {
   if (!validWhatsApp()) {
-    alert("Please add your real WhatsApp number in script.js before using order buttons.");
+    alert("Please add your WhatsApp number in script.js before using order buttons.");
     return;
   }
   const message = product
-    ? `Assalam-o-Alaikum! I am interested in ${product} from Herbal Oil Essence. Please share price, size and delivery details.`
-    : "Assalam-o-Alaikum! I would like to place an order with Herbal Oil Essence. Please share your products, prices and delivery details.";
+    ? `Assalam-o-Alaikum! I am interested in ${product} from Herbal Oil Essence. Please share availability and delivery details.`
+    : "Assalam-o-Alaikum! I would like to place an order with Herbal Oil Essence. Please share product and delivery details.";
   window.open(`https://wa.me/${BUSINESS_WHATSAPP}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
 }
 document.querySelectorAll(".order-product").forEach(button => {
@@ -42,20 +41,42 @@ document.getElementById("bannerWhatsapp").addEventListener("click", event => {
 const emailDisplay = document.getElementById("emailDisplay");
 const phoneDisplay = document.getElementById("phoneDisplay");
 emailDisplay.textContent = BUSINESS_EMAIL;
+emailDisplay.href = `mailto:${BUSINESS_EMAIL}`;
 phoneDisplay.textContent = `+${BUSINESS_WHATSAPP}`;
+phoneDisplay.href = `https://wa.me/${BUSINESS_WHATSAPP}`;
 
-document.getElementById("orderForm").addEventListener("submit", event => {
+const orderForm = document.getElementById("orderForm");
+const confirmation = document.getElementById("orderConfirmation");
+const summary = document.getElementById("confirmationSummary");
+const sendWhatsApp = document.getElementById("sendWhatsApp");
+const sendEmail = document.getElementById("sendEmail");
+
+orderForm.addEventListener("submit", event => {
   event.preventDefault();
-  const form = new FormData(event.currentTarget);
-  const name = form.get("name");
-  const phone = form.get("phone");
-  const product = form.get("product");
-  const message = form.get("message") || "Please share price and delivery details.";
-  const body = `Name: ${name}\nPhone: ${phone}\nProduct: ${product}\nMessage: ${message}`;
-  if (!BUSINESS_EMAIL) {
-    const status = document.getElementById("formStatus");
-    status.textContent = "Please set your real business email in script.js before using the website order form.";
-    return;
-  }
-  window.location.href = `mailto:${BUSINESS_EMAIL}?subject=${encodeURIComponent("Order enquiry - Herbal Oil Essence")}&body=${encodeURIComponent(body)}`;
+  if (!orderForm.reportValidity()) return;
+  const form = new FormData(orderForm);
+  const name = String(form.get("name")).trim();
+  const phone = String(form.get("phone")).trim();
+  const address = String(form.get("address")).trim();
+  const product = String(form.get("product"));
+  const quantity = Math.max(1, Math.min(20, Number(form.get("quantity")) || 1));
+  const extra = String(form.get("message") || "").trim();
+  const total = quantity * 2000;
+  const orderMessage = [
+    "NEW ORDER — HERBAL OIL ESSENCE",
+    `Customer: ${name}`,
+    `Phone: ${phone}`,
+    `Delivery address: ${address}`,
+    `Product: ${product}`,
+    `Quantity: ${quantity}`,
+    `Product total: Rs. ${total.toLocaleString("en-PK")}`,
+    `Additional instructions: ${extra || "None"}`,
+    "Please confirm delivery charges and expected delivery time."
+  ].join("\\n");
+
+  sendWhatsApp.href = `https://wa.me/${BUSINESS_WHATSAPP}?text=${encodeURIComponent(orderMessage)}`;
+  sendEmail.href = `mailto:${BUSINESS_EMAIL}?subject=${encodeURIComponent("New order - Herbal Oil Essence")}&body=${encodeURIComponent(orderMessage)}`;
+  summary.textContent = `Thank you, ${name}. Your order summary is ${quantity} × ${product} (product total Rs. ${total.toLocaleString("en-PK")}). Choose one or both methods below to send it to us.`;
+  confirmation.hidden = false;
+  confirmation.scrollIntoView({ behavior: "smooth", block: "nearest" });
 });

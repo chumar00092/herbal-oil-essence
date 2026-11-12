@@ -22,3 +22,10 @@ section,
 .contact-section {
   background-color: #eaf6ff;
 }
+
+/* Order confirmation panel */
+.order-confirmation { margin-top: 22px; padding: 20px; background: #f0f5e9; border: 1px solid #d9e3ce; display: grid; gap: 12px; }
+.order-confirmation[hidden] { display: none; }
+.order-confirmation h3 { margin: 0; }
+.order-confirmation p { margin: 0; font-size: 12px; line-height: 1.7; }
+.order-confirmation .button { display: inline-flex; justify-content: center; text-decoration: none; text-align: center; }
