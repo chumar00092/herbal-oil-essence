@@ -63,16 +63,22 @@ orderForm.addEventListener("submit", event => {
   const extra = String(form.get("message") || "").trim();
   const total = quantity * 2000;
   const orderMessage = [
-    "NEW ORDER — HERBAL OIL ESSENCE",
-    `Customer: ${name}`,
-    `Phone: ${phone}`,
-    `Delivery address: ${address}`,
-    `Product: ${product}`,
-    `Quantity: ${quantity}`,
-    `Product total: Rs. ${total.toLocaleString("en-PK")}`,
-    `Additional instructions: ${extra || "None"}`,
-    "Please confirm delivery charges and expected delivery time."
-  ].join("\\n");
+    "🌿 HERBAL OIL ESSENCE — NEW ORDER",
+    "━━━━━━━━━━━━━━━━━━━━",
+    "CUSTOMER DETAILS",
+    `1. Name: ${name}`,
+    `2. Mobile: ${phone}`,
+    `3. Delivery Address: ${address}`,
+    "",
+    "ORDER DETAILS",
+    `4. Product: ${product}`,
+    `5. Quantity: ${quantity} bottle(s)`,
+    `6. Product Total: Rs. ${total.toLocaleString("en-PK")}`,
+    `7. Extra Instructions: ${extra || "None"}`,
+    "",
+    "Please confirm delivery charges and expected delivery date.",
+    "Thank you!"
+  ].join(String.fromCharCode(10));
 
   sendWhatsApp.href = `https://wa.me/${BUSINESS_WHATSAPP}?text=${encodeURIComponent(orderMessage)}`;
   sendEmail.href = `mailto:${BUSINESS_EMAIL}?subject=${encodeURIComponent("New order - Herbal Oil Essence")}&body=${encodeURIComponent(orderMessage)}`;
