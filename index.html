@@ -3,21 +3,85 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Herbal Oil Essence Hair Oil, 200 ml.">
-  <meta name="theme-color" content="#071b3a">
-  <title>Herbal Oil Essence</title>
+  <meta name="description" content="Discover Herbal Oil Essence — explore our herbal oil collection and contact us to place an order.">
+  <meta name="theme-color" content="#234a35">
+  <title>Herbal Oil Essence | Nature in Every Drop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="announcement">NATURE-INSPIRED CARE · MADE WITH CARE</div>
   <header class="site-header">
-    <img class="brand-logo" src="herbal-oil-essence-logo.jpg" alt="Herbal Oil Essence logo">
+    <a class="brand" href="#home" aria-label="Herbal Oil Essence home">
+      <img class="brand-logo" src="herbal-oil-essence-logo.jpg" alt="Herbal Oil Essence logo">
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">☰</button>
+    <nav id="navMenu">
+      <a href="#home">Home</a><a href="#collection">Our Collection</a><a href="#about">Our Story</a><a href="#contact">Contact</a>
+      <a class="nav-cta" href="#order">Order Now</a>
+    </nav>
   </header>
+
   <main>
-    <section class="product">
-      <img class="product-photo" src="herbal-hair-oil-bottle.jpg" alt="Herbal Oil Essence hair oil bottle">
-      <p class="size">200 ml</p>
-      <p class="price">Rs. 2,000</p>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="dot"></span> SIMPLE · BOTANICAL · THOUGHTFUL</span>
+        <h1>Nature in<br><em>every drop.</em></h1>
+        <p>Discover the beauty of botanical oils with Herbal Oil Essence. Thoughtfully selected, easy to explore, and just a message away.</p>
+        <div class="hero-actions"><a class="button button-dark" href="#collection">Explore Collection <span>↗</span></a><a class="text-link" href="#about">Get to know us <span>→</span></a></div>
+        <div class="hero-note"><span class="note-icon">✦</span><span><strong>A little care, every day</strong><small>Explore our range and find your favourite.</small></span></div>
+      </div>
+      <div class="hero-art" aria-label="Botanical illustration of oil bottles and leaves">
+        <div class="sun-disc"></div><div class="hero-leaf leaf-one">❧</div><div class="hero-leaf leaf-two">❧</div>
+        <div class="product-bottle bottle-back"><div class="cap"></div><div class="bottle-label"><span>HERBAL</span><b>BOTANICAL<br>BLEND</b><small>30 ml</small></div></div>
+        <div class="product-bottle bottle-front"><div class="cap"></div><div class="bottle-label"><span>HERBAL OIL</span><b>PURE<br>ESSENCE</b><small>NATURE INSPIRED</small></div></div>
+        <div class="art-caption">BOTANICAL<br><b>RITUALS</b></div>
+        <div class="art-stamp">ROOTED IN<br>NATURE ✳</div>
+      </div>
+    </section>
+
+    <section class="trust-strip">
+      <div><span>✿</span><p><strong>Botanical inspiration</strong><small>Inspired by nature's simplicity</small></p></div>
+      <div><span>◌</span><p><strong>Made for your routine</strong><small>Simple care, made approachable</small></p></div>
+      <div><span>♡</span><p><strong>Easy to order</strong><small>Contact us directly</small></p></div>
+    </section>
+
+    <section class="collection section" id="collection">
+      <div class="section-heading"><div><span class="eyebrow">THE COLLECTION</span><h2>Find your <em>favourite.</em></h2></div><p>Explore our Herbal Oil Essence Hair Oil, available in a 200 ml bottle.</p></div>
+      <div class="product-grid">
+        <article class="product-card">
+          <div class="product-image image-olive real-product-image"><span class="product-tag">FEATURED</span><img class="product-photo" src="herbal-hair-oil-bottle.jpg" alt="Herbal Oil Essence hair oil bottle"></div>
+          <div class="product-info"><div><h3>Herbal Oil Essence Hair Oil</h3><p>Herbal hair oil · 200 ml bottle</p></div><span class="price">Rs. 2,000</span></div>
+          <button class="order-product" data-product="Herbal Oil Essence Hair Oil — Rs. 2,000">Order this product <span>↗</span></button>
+        </article>
+      </div>
+      <p class="disclaimer">Product details: Herbal Oil Essence Hair Oil · 200 ml · Rs. 2,000. Avoid adding health claims unless they are properly substantiated and legally permitted.</p>
+    </section>
+
+    <section class="about section" id="about">
+      <div class="about-art"><div class="about-circle"><span>✿</span><b>ROOTED IN<br>NATURE</b><small>HERBAL OIL ESSENCE</small></div><div class="about-leaf">❧</div></div>
+      <div class="about-copy"><span class="eyebrow">OUR STORY</span><h2>Care that feels<br><em>close to nature.</em></h2><p>At Herbal Oil Essence, we believe choosing an oil should feel simple and personal. We're building a collection inspired by botanicals, thoughtful presentation, and friendly service.</p><p>Have a question about a product? Reach out and we'll help you learn more before you order.</p><a class="button button-outline" href="#contact">Talk to our team <span>→</span></a></div>
+    </section>
+
+    <section class="order-banner" id="order"><div><span class="eyebrow light-eyebrow">READY TO EXPLORE?</span><h2>Your next favourite<br><em>is a message away.</em></h2><p>Ask about availability, sizes, pricing and delivery.</p></div><div class="banner-actions"><a class="button button-light" id="bannerWhatsapp" href="#contact">Order on WhatsApp <span>↗</span></a><a class="button button-ghost" href="#contact">Order through our website <span>↓</span></a></div></section>
+
+    <section class="contact section" id="contact">
+      <div class="contact-copy"><span class="eyebrow">GET IN TOUCH</span><h2>Let's talk <em>herbal.</em></h2><p>Send us your order details or a product question. We'll get back to you as soon as we can.</p><div class="contact-detail"><span>✉</span><div><small>EMAIL</small><strong id="emailDisplay">hello@example.com</strong></div></div><div class="contact-detail"><span>☏</span><div><small>WHATSAPP</small><strong id="phoneDisplay">Add your number in the setup</strong></div></div></div>
+      <form class="contact-form" id="orderForm">
+        <h3>Send an order enquiry</h3>
+        <label for="customerName">Your name</label><input id="customerName" name="name" placeholder="Enter your name" required>
+        <label for="customerPhone">Phone number</label><input id="customerPhone" name="phone" placeholder="Your contact number" required>
+        <label for="productChoice">What are you interested in?</label><select id="productChoice" name="product"><option>Herbal Oil Essence Hair Oil — Rs. 2,000 (200 ml)</option><option>Other / product question</option></select>
+        <label for="message">Message</label><textarea id="message" name="message" rows="3" placeholder="Quantity, delivery city, or questions…"></textarea>
+        <button class="button button-dark form-submit" type="submit">Prepare order enquiry <span>↗</span></button>
+        <small class="form-note">This form opens your email app to send the enquiry. Set your business email in script.js first.</small>
+        <p id="formStatus" role="status" class="form-status"></p>
+      </form>
     </section>
   </main>
+  <footer><a class="brand footer-brand" href="#home" aria-label="Herbal Oil Essence home"><img class="brand-logo" src="herbal-oil-essence-logo.jpg" alt="Herbal Oil Essence logo"></a><p>Nature-inspired care, one drop at a time.</p><span>© <span id="year"></span> Herbal Oil Essence</span></footer>
+  <script src="script.js"></script>
 </body>
 </html>
